@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Zoaiter — Platform & Backend Engineer</title>
+<meta name="description" content="Omar Zoaiter is a platform and backend engineer in Dubai. CI/CD on AWS, contract-first APIs, and the infrastructure other systems run on.">
+<meta property="og:title" content="Omar Zoaiter — Platform & Backend Engineer">
+<meta property="og:description" content="I build the systems other systems run on. CI/CD, AWS, cross-team API workflows — based in Dubai.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='10' cy='12' r='4' fill='%23FFB454'/%3E%3Ccircle cx='24' cy='20' r='3' fill='%2357D9A3'/%3E%3Cpath d='M13 14l8 5' stroke='%23FFB454' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Omar Zoaiter","jobTitle":"Platform & Backend Engineer","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"},"url":"https://omarzr.com","sameAs":["https://github.com/omar-zr","https://linkedin.com/in/omar-zoaiter"]}
+</script>
+<style>
+  :root {
+    --bg: #0D1321;
+    --panel: rgba(21, 29, 51, 0.55);
+    --panel-solid: #151D33;
+    --line: rgba(255, 255, 255, 0.09);
+    --text: #E7ECF5;
+    --muted: #9AA7C0;
+    --amber: #FFB454;
+    --teal: #57D9A3;
+    --font-head: "Space Grotesk", sans-serif;
+    --font-body: "IBM Plex Sans", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+  body {
+    background: var(--bg);
+    background-image: radial-gradient(ellipse 80% 60% at 70% 10%, #16203B 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--amber); color: var(--bg); }
+
+  /* ---------- 3D background ---------- */
+  #bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
+  }
+
+  /* ---------- accessibility ---------- */
+  .skip-link {
+    position: absolute;
+    left: 1rem; top: -4rem;
+    z-index: 100;
+    background: var(--amber); color: var(--bg);
+    font-family: var(--font-mono); font-size: .875rem;
+    padding: .6rem 1rem; border-radius: 6px;
+    transition: top .2s;
+  }
+  .skip-link:focus { top: 1rem; }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+  }
+
+  /* ---------- nav ---------- */
+  header.nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+    padding: .8rem clamp(1rem, 4vw, 2.5rem);
+    background: rgba(13, 19, 33, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo {
+    font-family: var(--font-mono); font-size: .9rem;
+    color: var(--amber); text-decoration: none; white-space: nowrap;
+  }
+  header.nav ul {
+    display: flex; gap: clamp(.75rem, 2vw, 1.5rem);
+    list-style: none;
+    overflow-x: auto;
+  }
+  header.nav a.nav-link {
+    font-family: var(--font-mono); font-size: .8125rem;
+    color: var(--muted); text-decoration: none; white-space: nowrap;
+    padding: .25rem .1rem;
+  }
+  header.nav a.nav-link:hover { color: var(--amber); }
+
+  /* ---------- layout ---------- */
+  main { position: relative; z-index: 1; }
+  section {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: clamp(4rem, 9vh, 7rem) clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .card {
+    background: var(--panel);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  }
+  .section-label {
+    font-family: var(--font-mono); font-size: .8125rem;
+    color: var(--amber); letter-spacing: .08em;
+    display: block; margin-bottom: .75rem;
+  }
+  h2 {
+    font-family: var(--font-head); font-weight: 700;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    margin-bottom: 1.75rem;
+  }
+  h2::after {
+    content: "";
+    display: block; width: 56px; height: 3px;
+    margin-top: .6rem;
+    background: linear-gradient(90deg, var(--amber), transparent);
+    border-radius: 2px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero {
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 6rem;
+  }
+  .hero-kicker {
+    font-family: var(--font-mono); font-size: .875rem;
+    color: var(--teal); letter-spacing: .12em;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: var(--font-head); font-weight: 700;
+    font-size: clamp(2.6rem, 8vw, 4.75rem);
+    line-height: 1.05; letter-spacing: -0.02em;
+  }
+  .hero .headline {
+    font-family: var(--font-head); font-weight: 500;
+    font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+    color: var(--muted);
+    margin-top: 1rem; max-width: 34ch;
+  }
+  .hero .headline em { color: var(--amber); font-style: normal; }
+  .terminal-line {
+    font-family: var(--font-mono); font-size: clamp(.85rem, 2vw, 1rem);
+    color: var(--text);
+    margin-top: 1.75rem;
+    display: flex; align-items: baseline; gap: .5ch;
+    min-height: 1.6em;
+  }
+  .terminal-line .prompt { color: var(--teal); }
+  .cursor {
+    display: inline-block;
+    width: .6ch; height: 1.1em;
+    background: var(--amber);
+    transform: translateY(.2em);
+    animation: blink 1.06s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .uptime-badge {
+    display: inline-flex; align-items: center; gap: .6ch;
+    font-family: var(--font-mono); font-size: .8125rem;
+    color: var(--muted);
+    margin-top: 1.25rem;
+    padding: .45rem .9rem;
+    border: 1px solid var(--line); border-radius: 999px;
+    background: rgba(13, 19, 33, 0.6);
+    width: fit-content;
+  }
+  .uptime-badge strong { color: var(--teal); font-weight: 500; }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    display: inline-block; flex-shrink: 0;
+  }
+  .dot.online { background: var(--teal); box-shadow: 0 0 8px var(--teal); }
+  .dot.building { background: var(--amber); box-shadow: 0 0 8px var(--amber); animation: pulse-dot 1.6s ease-in-out infinite; }
+  @keyframes pulse-dot { 50% { opacity: .35; } }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.25rem; }
+  .btn {
+    font-family: var(--font-mono); font-size: .9rem;
+    text-decoration: none;
+    padding: .8rem 1.5rem; border-radius: 10px;
+    border: 1px solid transparent;
+    transition: transform .15s, box-shadow .15s, background .15s;
+    display: inline-flex; align-items: center; gap: .6ch;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--amber); color: #1A1205; font-weight: 500; }
+  .btn-primary:hover { box-shadow: 0 8px 28px rgba(255, 180, 84, 0.35); }
+  .btn-ghost { border-color: var(--line); color: var(--text); background: rgba(21, 29, 51, 0.5); }
+  .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+  .scroll-hint {
+    font-family: var(--font-mono); font-size: .75rem; color: var(--muted);
+    margin-top: auto; padding-bottom: 2rem; padding-top: 3rem;
+  }
+
+  /* ---------- about ---------- */
+  .about-grid {
+    display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.5rem;
+    align-items: start;
+  }
+  .about-copy { padding: 2rem; }
+  .about-copy p + p { margin-top: 1rem; }
+  .about-copy strong { color: var(--amber); font-weight: 500; }
+  .facts { padding: 1.5rem; font-family: var(--font-mono); font-size: .875rem; }
+  .facts-title { color: var(--amber); margin-bottom: 1rem; font-size: .8125rem; letter-spacing: .06em; }
+  .facts dl { display: grid; grid-template-columns: auto 1fr; gap: .55rem 1.25rem; }
+  .facts dt { color: var(--muted); }
+  .facts dd { color: var(--text); }
+
+  /* ---------- projects ---------- */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.5rem;
+    perspective: 1200px;
+  }
+  .project {
+    padding: 1.6rem;
+    display: flex; flex-direction: column; gap: .9rem;
+    transform-style: preserve-3d;
+    transition: transform .18s ease-out, border-color .18s;
+    will-change: transform;
+  }
+  .project:hover { border-color: rgba(255, 180, 84, 0.35); }
+  .service-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    font-family: var(--font-mono); font-size: .8125rem;
+  }
+  .service-name { color: var(--muted); }
+  .status {
+    display: inline-flex; align-items: center; gap: .6ch;
+    font-size: .75rem;
+  }
+  .status.online { color: var(--teal); }
+  .status.building { color: var(--amber); }
+  .project h3 { font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; }
+  .project p { font-size: .95rem; color: var(--muted); flex-grow: 1; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .tag {
+    font-family: var(--font-mono); font-size: .7rem;
+    color: var(--teal);
+    border: 1px solid rgba(87, 217, 163, 0.25);
+    background: rgba(87, 217, 163, 0.07);
+    padding: .2rem .55rem; border-radius: 999px;
+  }
+  .project-link {
+    font-family: var(--font-mono); font-size: .8125rem;
+    color: var(--amber); text-decoration: none;
+  }
+  .project-link:hover { text-decoration: underline; }
+
+  /* ---------- stack ---------- */
+  .stack-groups { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+  .stack-group { padding: 1.6rem; }
+  .stack-group h3 {
+    font-family: var(--font-mono); font-size: .8125rem; font-weight: 500;
+    color: var(--amber); letter-spacing: .06em;
+    margin-bottom: 1rem;
+  }
+  .stack-group .tag-row .tag {
+    font-size: .8125rem;
+    color: var(--text);
+    border-color: var(--line);
+    background: rgba(255, 255, 255, 0.04);
+    padding: .35rem .8rem;
+  }
+
+  /* ---------- experience ---------- */
+  .timeline { list-style: none; position: relative; padding-left: 1.75rem; }
+  .timeline::before {
+    content: "";
+    position: absolute; left: 5px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--amber), rgba(255, 180, 84, 0.08));
+  }
+  .timeline li { position: relative; padding-bottom: 2.5rem; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before {
+    content: "";
+    position: absolute; left: -1.75rem; top: 8px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--amber);
+  }
+  .timeline .when { font-family: var(--font-mono); font-size: .8125rem; color: var(--teal); }
+  .timeline h3 { font-family: var(--font-head); font-size: 1.2rem; margin: .3rem 0 .15rem; }
+  .timeline .where { font-family: var(--font-mono); font-size: .875rem; color: var(--amber); }
+  .timeline p { color: var(--muted); font-size: .95rem; margin-top: .5rem; max-width: 62ch; }
+
+  /* ---------- contact ---------- */
+  .terminal { overflow: hidden; }
+  .terminal-bar {
+    display: flex; align-items: center; gap: .5rem;
+    padding: .7rem 1rem;
+    background: rgba(13, 19, 33, 0.8);
+    border-bottom: 1px solid var(--line);
+  }
+  .terminal-bar span { width: 11px; height: 11px; border-radius: 50%; display: block; }
+  .terminal-bar span:nth-child(1) { background: #FF6B6B; }
+  .terminal-bar span:nth-child(2) { background: var(--amber); }
+  .terminal-bar span:nth-child(3) { background: var(--teal); }
+  .terminal-bar code { font-family: var(--font-mono); font-size: .75rem; color: var(--muted); margin-left: .5rem; }
+  .terminal-body { padding: 1.75rem; font-family: var(--font-mono); font-size: .9rem; }
+  .terminal-body .cmd { color: var(--muted); margin-bottom: 1.25rem; }
+  .terminal-body .cmd .prompt { color: var(--teal); }
+  .terminal-body .cmd .arg { color: var(--text); }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .terminal-body .note { margin-top: 1.5rem; font-size: .8125rem; color: var(--muted); }
+  .terminal-body .note .ok { color: var(--teal); }
+
+  footer {
+    position: relative; z-index: 1;
+    text-align: center;
+    font-family: var(--font-mono); font-size: .75rem; color: var(--muted);
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero { padding-top: 5rem; }
+    header.nav ul { scrollbar-width: none; }
+    header.nav ul::-webkit-scrollbar { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">skip to content</a>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a class="nav-logo" href="#top" aria-label="Home">omar@zr:~$</a>
+  <nav aria-label="Sections">
+    <ul>
+      <li><a class="nav-link" href="#about">/about</a></li>
+      <li><a class="nav-link" href="#projects">/projects</a></li>
+      <li><a class="nav-link" href="#stack">/stack</a></li>
+      <li><a class="nav-link" href="#experience">/experience</a></li>
+      <li><a class="nav-link" href="#contact">/contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <p class="hero-kicker">BACKEND ENGINEERING LEAD · DUBAI</p>
+    <h1>Omar Zoaiter</h1>
+    <p class="headline">I build the systems <em>other systems</em> run on.</p>
+    <p class="terminal-line">
+      <span class="prompt" aria-hidden="true">$</span>
+      <span id="typed">building CI/CD pipelines on AWS…</span><span class="cursor" aria-hidden="true"></span>
+    </p>
+    <p class="uptime-badge">
+      <span class="dot online" aria-hidden="true"></span>
+      systems engineer · uptime <strong id="uptime">…</strong>
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">view running services →</a>
+      <a class="btn btn-ghost" href="#contact">open a connection</a>
+    </div>
+    <p class="scroll-hint" aria-hidden="true">▼ scroll — the graph keeps running</p>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" aria-labelledby="about-h">
+    <span class="section-label">## 01 · whoami</span>
+    <h2 id="about-h">About</h2>
+    <div class="about-grid">
+      <div class="card about-copy">
+        <p>I'm an infrastructure and product engineer based in Dubai. My work
+        lives where backend code meets the platform it runs on: <strong>CI/CD
+        pipelines</strong>, <strong>AWS infrastructure</strong>, and the
+        <strong>API contracts</strong> that let frontend and backend teams ship
+        in parallel instead of waiting on each other.</p>
+        <p>Currently Backend Engineering Lead at Hightekers. Before that:
+        Mozn, on the platform behind AI risk products; three and a half years
+        at Kaso (YC W22), where I led the platform team for B2B food-supply
+        commerce; and HIPAA-compliant health-tech at Medicus AI. Along the
+        way I've automated release pipelines, cut build times,
+        reverse-engineered undocumented data formats, and turned "works on my
+        machine" into "runs in production".</p>
+        <p>I care about boring reliability: pipelines that never surprise you,
+        APIs that mean what the spec says, and infrastructure you can hand to
+        the next engineer without an apology.</p>
+      </div>
+      <aside class="card facts" aria-label="Quick facts">
+        <p class="facts-title"># facts.yml</p>
+        <dl>
+          <dt>location:</dt><dd>Dubai, UAE</dd>
+          <dt>timezone:</dt><dd>GST · UTC+4</dd>
+          <dt>languages:</dt><dd>English, Arabic</dd>
+          <dt>degree:</dt><dd>BSc Artificial Intelligence</dd>
+          <dt>certs:</dt><dd>AWS Solutions Architect</dd>
+          <dt>focus:</dt><dd>infra · CI/CD · APIs</dd>
+          <dt>status:</dt><dd>🟢 operational</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" aria-labelledby="projects-h">
+    <span class="section-label">## 02 · running services</span>
+    <h2 id="projects-h">Projects</h2>
+    <div class="projects-grid">
+
+      <article class="card project" data-tilt>
+        <div class="service-row">
+          <span class="service-name">ci-runners.aws</span>
+          <span class="status online"><span class="dot online" aria-hidden="true"></span>online<span class="sr-only"> — status: online</span></span>
+        </div>
+        <h3>Self-hosted CI platform</h3>
+        <p>GitHub Actions runners on AWS EC2, self-hosted and self-managed:
+        provisioned instances, hardened the runner environment, and wired
+        pipelines so the team gets fast, private builds without paying
+        hosted-runner prices for every push.</p>
+        <div class="tag-row">
+          <span class="tag">GitHub Actions</span><span class="tag">AWS EC2</span><span class="tag">Bash</span><span class="tag">Linux</span>
+        </div>
+      </article>
+
+      <article class="card project" data-tilt>
+        <div class="service-row">
+          <span class="service-name">api-contracts.workflow</span>
+          <span class="status online"><span class="dot online" aria-hidden="true"></span>online<span class="sr-only"> — status: online</span></span>
+        </div>
+        <h3>Contract-first API workflow</h3>
+        <p>A working agreement between frontend and backend teams: the API
+        contract is written first and treated as the source of truth, so both
+        sides build against the same spec in parallel — fewer integration
+        surprises, fewer "who changed this field" threads.</p>
+        <div class="tag-row">
+          <span class="tag">REST</span><span class="tag">OpenAPI</span><span class="tag">Jira</span><span class="tag">cross-team</span>
+        </div>
+      </article>
+
+      <article class="card project" data-tilt>
+        <div class="service-row">
+          <span class="service-name">manager-io.decoder</span>
+          <span class="status online"><span class="dot online" aria-hidden="true"></span>online<span class="sr-only"> — status: online</span></span>
+        </div>
+        <h3>Accounting data decoder</h3>
+        <p>Reverse-engineered the storage format of Manager.io accounting
+        files: an SQLite container holding Protobuf-encoded records. Built a
+        decoder that turns opaque business data back into something you can
+        query, export, and audit.</p>
+        <div class="tag-row">
+          <span class="tag">SQLite</span><span class="tag">Protobuf</span><span class="tag">Python</span><span class="tag">reverse engineering</span>
+        </div>
+        <a class="project-link" href="https://github.com/omar-zr/manager.io" target="_blank" rel="noopener">→ view source on GitHub</a>
+      </article>
+
+      <article class="card project" data-tilt>
+        <div class="service-row">
+          <span class="service-name">oculus.health</span>
+          <span class="status building"><span class="dot building" aria-hidden="true"></span>building<span class="sr-only"> — status: building</span></span>
+        </div>
+        <h3>Ophthalmology health-tech startup</h3>
+        <p>Digital tooling for eye care — bringing clinic workflows, patient
+        data, and the infrastructure behind them into one product. Early
+        stage and under active construction; watch this status dot.</p>
+        <div class="tag-row">
+          <span class="tag">health-tech</span><span class="tag">product</span><span class="tag">founder</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section id="stack" aria-labelledby="stack-h">
+    <span class="section-label">## 03 · installed packages</span>
+    <h2 id="stack-h">Stack</h2>
+    <div class="stack-groups">
+      <div class="card stack-group">
+        <h3>$ infra &amp; ops</h3>
+        <div class="tag-row">
+          <span class="tag">AWS</span><span class="tag">GitHub Actions</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Bash</span>
+        </div>
+      </div>
+      <div class="card stack-group">
+        <h3>$ code &amp; data</h3>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">REST</span><span class="tag">Protobuf</span>
+        </div>
+      </div>
+      <div class="card stack-group">
+        <h3>$ product</h3>
+        <div class="tag-row">
+          <span class="tag">Jira</span><span class="tag">API contracts</span><span class="tag">cross-team coordination</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" aria-labelledby="exp-h">
+    <span class="section-label">## 04 · git log --career</span>
+    <h2 id="exp-h">Experience</h2>
+    <ol class="timeline">
+      <li>
+        <span class="when">Jun 2025 — present</span>
+        <h3>Backend Engineering Lead</h3>
+        <span class="where">Hightekers · Dubai</span>
+        <p>Leading backend engineering: architecture, delivery pipelines, and
+        the cross-team API workflows that keep frontend and backend shipping
+        against the same contract.</p>
+      </li>
+      <li>
+        <span class="when">Nov 2024 — Jun 2025</span>
+        <h3>Senior Software Engineer</h3>
+        <span class="where">Mozn · Dubai</span>
+        <p>Solutions and backend engineering on AI-driven risk products —
+        Python services and the platform work that gets ML out of notebooks
+        and into production.</p>
+      </li>
+      <li>
+        <span class="when">Jul 2021 — Dec 2024</span>
+        <h3>Platform Team Leader</h3>
+        <span class="where">Kaso (YC W22) · Dubai</span>
+        <p>Joined as a backend developer, took over the platform team in
+        2022. Designed scalable backend architectures for B2B food-supply
+        commerce, ran CI/CD and DevOps practices across teams, and used
+        AI/ML to push automation further — three and a half years from
+        early-stage YC startup to mature platform.</p>
+      </li>
+      <li>
+        <span class="when">May 2020 — Jul 2021</span>
+        <h3>Senior Software Engineer</h3>
+        <span class="where">AlphaApps · Dubai</span>
+        <p>Node.js/NestJS microservices and RESTful APIs on AWS — EC2, S3,
+        Lambda, RDS — with CI/CD pipelines, security hardening, code review,
+        and mentorship.</p>
+      </li>
+      <li>
+        <span class="when">Apr 2019 — May 2020</span>
+        <h3>Back End Developer</h3>
+        <span class="where">Medicus AI · Vienna (remote)</span>
+        <p>HIPAA-compliant health-tech backends in PHP/Yii2 and MySQL —
+        secure APIs, data-protection protocols, and the CI/CD to ship them
+        safely. Where the health-tech itch started.</p>
+      </li>
+      <li>
+        <span class="when">Jan 2018 — Apr 2019</span>
+        <h3>Full Stack Developer</h3>
+        <span class="where">LikeCard · Dubai</span>
+        <p>.NET and Angular web applications: REST APIs, SQL Server, and the
+        team's first steps into CI/CD best practices.</p>
+      </li>
+      <li>
+        <span class="when">Jan 2017 — Jan 2018</span>
+        <h3>Full Stack Engineer</h3>
+        <span class="where">BlackBox Software Solutions</span>
+        <p>First production systems — Laravel builds and web delivery.
+        Process start; uptime counter began here.</p>
+      </li>
+      <li>
+        <span class="when">2016 — 2021</span>
+        <h3>BSc Artificial Intelligence</h3>
+        <span class="where">Arab International University</span>
+        <p>Where the systems habit started — plus a HarvardX Public
+        Leadership certificate (2025) for the human side of engineering.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" aria-labelledby="contact-h">
+    <span class="section-label">## 05 · open a connection</span>
+    <h2 id="contact-h">Contact</h2>
+    <div class="card terminal">
+      <div class="terminal-bar" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <code>omar@dubai: ~/contact</code>
+      </div>
+      <div class="terminal-body">
+        <p class="cmd"><span class="prompt">$</span> contact <span class="arg">--via</span> [email | github | linkedin]</p>
+        <div class="contact-row">
+          <a class="btn btn-primary" href="mailto:omar.zr98@gmail.com">✉ email</a>
+          <a class="btn btn-ghost" href="https://github.com/omar-zr" target="_blank" rel="noopener">⌥ github</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/omar-zoaiter" target="_blank" rel="noopener">in linkedin</a>
+        </div>
+        <p class="note"><span class="ok">✓</span> handshake ready — usually responds within 24h (GST, UTC+4)</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© <span id="year">2026</span> Omar Zoaiter · one index.html, Three.js, zero build steps · <span style="color:var(--teal)">●</span> all systems nominal</p>
+</footer>
+
+<!-- ============ core interactions (no dependencies) ============ -->
+<script>
+(function () {
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ---- uptime counter (career start: BlackBox, Jan 2017) ---- */
+  var CAREER_START = new Date("2017-01-01T00:00:00Z");
+  var uptimeEl = document.getElementById("uptime");
+  function renderUptime() {
+    var ms = Date.now() - CAREER_START.getTime();
+    var days = Math.floor(ms / 86400000);
+    var years = Math.floor(days / 365.25);
+    var remDays = days - Math.floor(years * 365.25);
+    var h = String(Math.floor(ms / 3600000) % 24).padStart(2, "0");
+    var m = String(Math.floor(ms / 60000) % 60).padStart(2, "0");
+    var s = String(Math.floor(ms / 1000) % 60).padStart(2, "0");
+    uptimeEl.textContent = years + "y " + remDays + "d " + h + ":" + m + ":" + s;
+  }
+  renderUptime();
+  if (!reduceMotion) setInterval(renderUptime, 1000);
+
+  /* ---- terminal typing ---- */
+  var phrases = [
+    "building CI/CD pipelines on AWS…",
+    "designing contract-first APIs…",
+    "decoding undocumented data formats…",
+    "keeping the status dots green…"
+  ];
+  var typedEl = document.getElementById("typed");
+  if (!reduceMotion) {
+    var pi = 0, ci = 0, deleting = false;
+    typedEl.textContent = "";
+    (function tick() {
+      var phrase = phrases[pi];
+      if (!deleting) {
+        ci++;
+        typedEl.textContent = phrase.slice(0, ci);
+        if (ci === phrase.length) { deleting = true; return setTimeout(tick, 2200); }
+        return setTimeout(tick, 42 + Math.random() * 48);
+      }
+      ci--;
+      typedEl.textContent = phrase.slice(0, ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; return setTimeout(tick, 420); }
+      setTimeout(tick, 22);
+    })();
+  }
+
+  /* ---- 3D tilt on project cards ---- */
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!reduceMotion && canHover) {
+    document.querySelectorAll("[data-tilt]").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          "rotateX(" + (-py * 9).toFixed(2) + "deg) rotateY(" + (px * 9).toFixed(2) + "deg) translateZ(6px)";
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0)";
+      });
+    });
+  }
+})();
+</script>
+
+<!-- ============ Three.js network scene (page degrades gracefully without it) ============ -->
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js";
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isMobile = window.innerWidth < 768;
+const canvas = document.getElementById("bg");
+
+const COLORS = {
+  bg: 0x0d1321,
+  node: 0x4a5f8f,
+  hubAmber: 0xffb454,
+  hubTeal: 0x57d9a3,
+  edge: 0x35507f,
+  pulseAmber: 0xffc677,
+  pulseTeal: 0x7fe8bd
+};
+const NODE_COUNT = isMobile ? 46 : 96;
+const PULSE_COUNT = reduceMotion ? 0 : (isMobile ? 6 : 14);
+const EDGE_MAX_DIST = isMobile ? 4.6 : 3.9;
+const MAX_DEGREE = 5;
+
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: true, powerPreference: "high-performance" });
+} catch (e) {
+  canvas.remove(); // no WebGL: CSS gradient background stays
+  throw e;
+}
+renderer.setClearColor(COLORS.bg, 0); // let the CSS gradient show through
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(COLORS.bg, 18, 34);
+const camera = new THREE.PerspectiveCamera(58, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(0, 0, 16);
+
+const graph = new THREE.Group();
+scene.add(graph);
+
+/* soft round glow sprite so points don't render as squares */
+function makeGlowTexture() {
+  const c = document.createElement("canvas");
+  c.width = c.height = 64;
+  const g = c.getContext("2d");
+  const grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+  grad.addColorStop(0, "rgba(255,255,255,1)");
+  grad.addColorStop(0.35, "rgba(255,255,255,0.75)");
+  grad.addColorStop(1, "rgba(255,255,255,0)");
+  g.fillStyle = grad;
+  g.fillRect(0, 0, 64, 64);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+const glowTex = makeGlowTexture();
+
+/* ---- nodes: flattened ellipsoid cloud ---- */
+const nodePos = new Float32Array(NODE_COUNT * 3);
+const nodeCol = new Float32Array(NODE_COUNT * 3);
+const tmpColor = new THREE.Color();
+for (let i = 0; i < NODE_COUNT; i++) {
+  const dir = new THREE.Vector3().randomDirection();
+  const r = 11 * Math.cbrt(Math.random());
+  nodePos[i * 3] = dir.x * r * 1.25;
+  nodePos[i * 3 + 1] = dir.y * r * 0.62;
+  nodePos[i * 3 + 2] = dir.z * r * 0.9;
+  const roll = Math.random();
+  tmpColor.set(roll < 0.08 ? COLORS.hubAmber : roll < 0.18 ? COLORS.hubTeal : COLORS.node);
+  nodeCol[i * 3] = tmpColor.r; nodeCol[i * 3 + 1] = tmpColor.g; nodeCol[i * 3 + 2] = tmpColor.b;
+}
+const nodeGeo = new THREE.BufferGeometry();
+nodeGeo.setAttribute("position", new THREE.BufferAttribute(nodePos, 3));
+nodeGeo.setAttribute("color", new THREE.BufferAttribute(nodeCol, 3));
+graph.add(new THREE.Points(nodeGeo, new THREE.PointsMaterial({
+  size: 0.34, map: glowTex, vertexColors: true, transparent: true, opacity: 0.95,
+  blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true
+})));
+
+/* ---- edges: connect near neighbours, capped degree ---- */
+const edges = [];
+const degree = new Array(NODE_COUNT).fill(0);
+const va = new THREE.Vector3(), vb = new THREE.Vector3();
+for (let i = 0; i < NODE_COUNT; i++) {
+  for (let j = i + 1; j < NODE_COUNT; j++) {
+    if (degree[i] >= MAX_DEGREE || degree[j] >= MAX_DEGREE) continue;
+    va.fromArray(nodePos, i * 3); vb.fromArray(nodePos, j * 3);
+    if (va.distanceTo(vb) < EDGE_MAX_DIST) { edges.push([i, j]); degree[i]++; degree[j]++; }
+  }
+}
+const edgePos = new Float32Array(edges.length * 6);
+edges.forEach(([i, j], k) => {
+  edgePos.set(nodePos.subarray(i * 3, i * 3 + 3), k * 6);
+  edgePos.set(nodePos.subarray(j * 3, j * 3 + 3), k * 6 + 3);
+});
+const edgeGeo = new THREE.BufferGeometry();
+edgeGeo.setAttribute("position", new THREE.BufferAttribute(edgePos, 3));
+graph.add(new THREE.LineSegments(edgeGeo, new THREE.LineBasicMaterial({
+  color: COLORS.edge, transparent: true, opacity: 0.34,
+  blending: THREE.AdditiveBlending, depthWrite: false
+})));
+
+/* ---- pulses: lights travelling along edges ---- */
+const pulses = [];
+let pulsePoints = null;
+if (PULSE_COUNT > 0 && edges.length > 0) {
+  const pulsePos = new Float32Array(PULSE_COUNT * 3);
+  const pulseCol = new Float32Array(PULSE_COUNT * 3);
+  for (let i = 0; i < PULSE_COUNT; i++) {
+    pulses.push({ edge: (Math.random() * edges.length) | 0, t: Math.random(), speed: 0.35 + Math.random() * 0.65 });
+    tmpColor.set(i % 2 ? COLORS.pulseTeal : COLORS.pulseAmber);
+    pulseCol[i * 3] = tmpColor.r; pulseCol[i * 3 + 1] = tmpColor.g; pulseCol[i * 3 + 2] = tmpColor.b;
+  }
+  const pulseGeo = new THREE.BufferGeometry();
+  pulseGeo.setAttribute("position", new THREE.BufferAttribute(pulsePos, 3));
+  pulseGeo.setAttribute("color", new THREE.BufferAttribute(pulseCol, 3));
+  pulsePoints = new THREE.Points(pulseGeo, new THREE.PointsMaterial({
+    size: 0.6, map: glowTex, vertexColors: true, transparent: true, opacity: 0.95,
+    blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true
+  }));
+  graph.add(pulsePoints);
+}
+function updatePulses(dt) {
+  if (!pulsePoints) return;
+  const arr = pulsePoints.geometry.attributes.position.array;
+  for (let i = 0; i < pulses.length; i++) {
+    const p = pulses[i];
+    p.t += p.speed * dt;
+    if (p.t >= 1) { p.t = 0; p.edge = (Math.random() * edges.length) | 0; }
+    const [a, b] = edges[p.edge];
+    const t = p.t;
+    arr[i * 3]     = nodePos[a * 3]     + (nodePos[b * 3]     - nodePos[a * 3]) * t;
+    arr[i * 3 + 1] = nodePos[a * 3 + 1] + (nodePos[b * 3 + 1] - nodePos[a * 3 + 1]) * t;
+    arr[i * 3 + 2] = nodePos[a * 3 + 2] + (nodePos[b * 3 + 2] - nodePos[a * 3 + 2]) * t;
+  }
+  pulsePoints.geometry.attributes.position.needsUpdate = true;
+}
+
+/* ---- parallax + loop ---- */
+graph.rotation.x = 0.14;
+const mouse = { x: 0, y: 0 };
+if (!reduceMotion) {
+  window.addEventListener("pointermove", (e) => {
+    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = (e.clientY / window.innerHeight) * 2 - 1;
+  }, { passive: true });
+}
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  if (reduceMotion) renderer.render(scene, camera);
+});
+
+if (reduceMotion) {
+  updatePulses(0);
+  renderer.render(scene, camera);
+} else {
+  const clock = new THREE.Clock();
+  let running = true;
+  document.addEventListener("visibilitychange", () => {
+    running = !document.hidden;
+    if (running) { clock.getDelta(); frame(); }
+  });
+  function frame() {
+    if (!running) return;
+    requestAnimationFrame(frame);
+    const dt = Math.min(clock.getDelta(), 0.05);
+    graph.rotation.y += dt * 0.045;
+    updatePulses(dt);
+    camera.position.x += (mouse.x * 1.7 - camera.position.x) * 0.045;
+    camera.position.y += (-mouse.y * 1.0 - camera.position.y) * 0.045;
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+  }
+  frame();
+}
+</script>
+
+</body>
+</html>
